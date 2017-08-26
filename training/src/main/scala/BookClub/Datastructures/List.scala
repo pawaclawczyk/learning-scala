@@ -67,8 +67,6 @@ object List {
 
   def rightAsLeft[A, B](l: List[A], z: B)(f: (A, B) => B): B = foldLeft(reverse(l), z)((a, b) => f(b, a))
 
-  def flatConcat[A](l: List[List[A]]): List[A] = foldLeft(l, )
-
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
